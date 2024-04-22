@@ -12,3 +12,7 @@ def home():
 @app.route("/accounts")
 def accounts():
     return render_template("accounts.html")
+
+@app.route("/add")
+def add():
+    return render_template("add.html")
