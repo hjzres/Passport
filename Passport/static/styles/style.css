@@ -1,3 +1,7 @@
 .right-side{
     float: right;
 }
+
+.block{
+    display: block;
+}
