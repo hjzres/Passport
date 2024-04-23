@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accounts</title>
+    <link rel="stylesheet" href="/static/styles/styles.css">
     <link rel="stylesheet" href="/static/styles/accounts.css">
 </head>
 <body>
     <button class="add-account" id="add-account">Add Account</button>
-
-    {% for account in cache %}
-        <p>{{ account }}</p>
+    <p class=><b>person<span class="right-side">Tickets</span></b></p>
+    {% for person in cache %}
+        <p>{{ person }}<span class="right-side">{{ cache[account] }}</span></p>
     {% endfor %}
 
     <div id="myModal" class="modal">
