@@ -11,7 +11,7 @@
     <button class="add-account" id="add-account">Add Account</button>
     <p class=><b>person<span class="right-side">Tickets</span></b></p>
     {% for person in cache %}
-        <p>{{ person }}<span class="right-side">{{ cache[account] }}</span></p>
+        <p>{{ person }}<span class="right-side">{{ cache[person] }}</span></p>
     {% endfor %}
 
     <div id="myModal" class="modal">
