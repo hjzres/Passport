@@ -9,10 +9,16 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/accounts")
+@app.route("/e/accounts")
 def accounts():
-    return render_template("accounts.html")
+    cache = data.load_file("cache")
+    
+    return render_template("accounts.html", cache=cache)
 
 @app.route("/add")
 def add():
     return render_template("add.html")
+
+
+if __name__ == "__main__":
+    app.run("localhost", 8000, debug=True)
