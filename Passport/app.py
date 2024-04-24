@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request  # type: ignore
-import uuid
-import json
 import data
+import pathlib
 
 app = Flask(__name__)
+
+data_folder = pathlib.Path("./data/")
+data_folder.mkdir(exist_ok=True, parents=True)
+data.post_file({}, "cache")
 
 @app.route("/")
 def home():
