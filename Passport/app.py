@@ -26,6 +26,10 @@ def add():
 
     if request.method == "POST":
         name = request.form["name"]
+        worth = request.form["worth"]
+
+        cache[name] += int(worth)
+        data.post_file(cache, "cache")
 
     return render_template("add.html")
 
