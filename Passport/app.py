@@ -27,9 +27,11 @@ def add():
     if request.method == "POST":
         name = request.form["name"]
         worth = request.form["worth"]
-
-        cache[name] += int(worth)
-        data.post_file(cache, "cache")
+        if name in cache:
+            cache[name] += int(worth)
+            data.post_file(cache, "cache")
+        else:
+            return render_template("add.html", error="That name is not in the system")
 
     return render_template("add.html")
 
