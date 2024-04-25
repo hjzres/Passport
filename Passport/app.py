@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 data_folder = pathlib.Path("./data/")
 data_folder.mkdir(exist_ok=True, parents=True)
-data.post_file({}, "cache")
+if not (data_folder / "cache.json").is_file():
+    data.post_file({}, "cache")
 
 @app.route("/")
 def home():
