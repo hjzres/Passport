@@ -9,9 +9,10 @@
 </head>
 <body>
     <button class="add-account" id="add-account">Add Account</button>
-    <p class=><b>person<span class="right-side">Tickets</span></b></p>
+    <p><b>Person<span class="right-side">Tickets</span></b></p>
+    <hr>
     {% for person in cache %}
-        <p>{{ person }}<span class="right-side">{{ cache[person] }}</span></p>
+        <p class="list">{{ person }}<span class="right-side">{{ cache[person] }}</span></p>
     {% endfor %}
 
     <div id="myModal" class="modal">
