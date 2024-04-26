@@ -19,8 +19,9 @@ def accounts():
 
     if request.method == "POST":
         name = request.form["name"]
-        cache[name] = 0
-        data.post_file(cache, "cache")
+        if not name in cache:
+            cache[name] = 0
+            data.post_file(cache, "cache")
     
     return render_template("accounts.html", cache=cache)
 
@@ -38,6 +39,11 @@ def add():
             return render_template("add.html", error="That name is not in the system")
 
     return render_template("add.html")
+
+@app.route("/e/raffle")
+def raffle():
+    cache = data.load_file("cache")
+    return render_template("raffle.html", cache=cache)
 
 if __name__ == "__main__":
     app.run("localhost", 8000, debug=True)
