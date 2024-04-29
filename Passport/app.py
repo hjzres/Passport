@@ -19,7 +19,10 @@ def accounts():
 
     if request.method == "POST":
         name = request.form["name"]
-        if not name in cache:
+        if request.form.get('_method') == 'PUT':
+            del cache[name]
+            data.post_file(cache, "cache")
+        elif not name in cache:
             cache[name] = 0
             data.post_file(cache, "cache")
     

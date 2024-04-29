@@ -16,7 +16,13 @@
     <p><b>Person<span class="right-side">Tickets</span></b></p>
     <hr>
     {% for person in cache %}
-        <p class="list">{{ person }}<span class="right-side">{{ cache[person] }}</span></p>
+      <form method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="name" value="{{ person }}">
+          <p class="inline">{{ person }}</p>
+          <button class="clear"><i class="fa fa-trash"></i></button>
+          <span class="right-side">{{ cache[person] }}</span>
+      </form>
     {% endfor %}
 
     <div id="myModal" class="modal">
