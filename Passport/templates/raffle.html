@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Raffle</title>
 </head>
 <body>
+    <form action="/" class="inline">
+        <button class="btn"><i class="fa fa-home"></i></button>
+    </form>
     {% for person in cache %}
         {%- if cache[person] >= 20 -%}
             <p class="looks">{{ person }}</p>
