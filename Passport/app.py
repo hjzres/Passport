@@ -10,6 +10,8 @@ if not (data_folder / "cache.json").is_file():
     data.post_file({}, "cache")
 if not (data_folder / "deleted.json").is_file():
     data.post_file({}, "deleted")
+if not (data_folder / "settings.toml").is_file():
+    data.make_settings()
 
 @app.route("/")
 def home():
@@ -51,7 +53,9 @@ def add():
 @app.route("/e/raffle")
 def raffle():
     cache = data.load_file("cache")
-    return render_template("raffle.html", cache=cache)
+    settings = data.load_settings()
+    print(settings)
+    return render_template("raffle.html", cache=cache, ticketMinimum=settings["ticketMinimum"])
 
 if __name__ == "__main__":
     app.run("localhost", 8000, debug=True)
