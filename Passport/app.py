@@ -8,6 +8,8 @@ data_folder = pathlib.Path("./data/")
 data_folder.mkdir(exist_ok=True, parents=True)
 if not (data_folder / "cache.json").is_file():
     data.post_file({}, "cache")
+if not (data_folder / "deleted.json").is_file():
+    data.post_file({}, "deleted")
 
 @app.route("/")
 def home():
@@ -18,9 +20,12 @@ def accounts():
     cache = data.load_file("cache")
 
     if request.method == "POST":
-        name = request.form["name"]
+        name = request.form["name"] 
         if request.form.get('_method') == 'PUT':
+            deleted = data.load_file("deleted")
+            deleted[name] = cache[name]
             del cache[name]
+            data.post_file(deleted, "deleted")
             data.post_file(cache, "cache")
         elif not name in cache:
             cache[name] = 0
