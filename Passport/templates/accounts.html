@@ -19,9 +19,9 @@
       <form method="post">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="name" value="{{ person }}">
-          <p class="inline">{{ person }}</p>
+          <p class="inline list">{{ person }}</p>
           <button class="clear"><i class="fa fa-trash"></i></button>
-          <span class="right-side">{{ cache[person] }}</span>
+          <span class="right-side list">{{ cache[person] }}</span>
       </form>
     {% endfor %}
 

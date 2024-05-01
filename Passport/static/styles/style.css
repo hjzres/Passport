@@ -16,7 +16,12 @@ p{
     font-style: normal;
 }
 
-.list, .looks{
+.looks{
+    font-weight: 350;
+}
+
+.list{
+    font-size:20px;
     font-weight: 350;
 }
 
