@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request  # type: ignore
-from . import data
+import data
 import pathlib
 
 app = Flask(__name__)
@@ -33,7 +33,7 @@ def accounts():
             cache[name] = 0
             data.post_file(cache, "cache")
     
-    return render_template("accounts.html", cache=cache)
+    return render_template("accounts.html", cache=data.order(cache))
 
 @app.route("/e/add", methods=["GET", "POST"])
 def add():
