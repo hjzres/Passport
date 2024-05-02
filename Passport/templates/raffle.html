@@ -12,7 +12,7 @@
         <button class="btn"><i class="fa fa-home"></i></button>
     </form>
     {% for person in cache %}
-        <p class="list"> {{ person }} <span class="right-side"> {{ cache[person] }} </span></p>
+        <p class="list"> {{ person }} <span class="indent"> x{{ cache[person] }} </span></p>
     {% endfor %}
 </body>
 </html>
