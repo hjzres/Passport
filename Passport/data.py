@@ -14,8 +14,8 @@ def load_settings():
         return tomllib.load(f)
 
 def make_settings():
-    with open(f"./data/setting.tomol", "w") as f:
-        f.write("minimumTickets = 0")
+    with open(f"./data/settings.toml", "w") as f:
+        f.write("minimumTickets = 0\nticketsPerRaffle=10")
 
 def order(dict):
     reordered_list = {}

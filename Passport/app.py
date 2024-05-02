@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request  # type: ignore
-from . import data
+import data
 import pathlib
+import math
 
 app = Flask(__name__)
 
@@ -53,9 +54,17 @@ def add():
 @app.route("/e/raffle")
 def raffle():
     cache = data.load_file("cache")
+    updated_cache = {}
+    keys = list(cache.keys())
     settings = data.load_settings()
-    print(settings)
-    return render_template("raffle.html", cache=cache, ticketMinimum=settings["ticketMinimum"])
+    minimumTickets = settings["minimumTickets"]
+    ticketsPerRaffle = settings["ticketsPerRaffle"] 
+    for i in range(len(keys)):
+        if cache[keys[i]] >= minimumTickets:
+            raffle_tickets = math.floor((cache[keys[i]] - minimumTickets) / ticketsPerRaffle)
+            updated_cache[keys[i]] = raffle_tickets
+
+    return render_template("raffle.html", cache=updated_cache)
 
 if __name__ == "__main__":
     app.run("localhost", 8000, debug=True)
