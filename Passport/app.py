@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request  # type: ignore
-import data
+from . import data
 import pathlib
 import math
 
