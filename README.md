@@ -1,7 +1,10 @@
 # Passport
 
-### To install:
-Go to a file where you would like to install this in, then open the terminal and type 
+### Before Installing
+Before installing, you need to download [Git](https://git-scm.com/) and python
+
+### Install
+Go to a file where you would like to install this file in, then open the terminal and type 
 ```ps
 python -m venv Passport
 ```
