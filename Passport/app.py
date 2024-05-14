@@ -16,7 +16,9 @@ if not (data_folder / "settings.toml").is_file():
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    settings = data.load_settings()
+    day = settings["day"]
+    return render_template("home.html", day=day)
 
 @app.route("/e/accounts", methods=["GET", "POST"])
 def accounts():
