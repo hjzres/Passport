@@ -32,8 +32,14 @@ def accounts():
             del cache[name]
             data.post_file(deleted, "deleted")
             data.post_file(cache, "cache")
-        elif not name in cache:
-            cache[name] = 0
+        elif name not in cache:
+            cache[name] = {
+                "dayOne": 0,
+                "dayTwo": 0,
+                "dayThree": 0,
+                "dayFour": 0,
+                "bonus": 0
+            }
             data.post_file(cache, "cache")
     
     return render_template("accounts.html", cache=data.order(cache))
