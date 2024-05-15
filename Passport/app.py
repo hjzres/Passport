@@ -93,8 +93,10 @@ def raffle():
     minimumTickets = settings["minimumTickets"]
     ticketsPerRaffle = settings["ticketsPerRaffle"] 
     for i in range(len(keys)):
-        if cache[keys[i]] >= minimumTickets:
-            raffle_tickets = math.floor((cache[keys[i]] - minimumTickets) / ticketsPerRaffle) + 1
+        print(data.total_points(cache, keys[i]))
+        print(cache[keys[i]])
+        if data.total_points(cache, keys[i]) >= minimumTickets:
+            raffle_tickets = math.floor((data.total_points(cache, keys[i]) - minimumTickets) / ticketsPerRaffle) + 1
             updated_cache[keys[i]] = raffle_tickets
 
     return render_template("raffle.html", cache=updated_cache)
