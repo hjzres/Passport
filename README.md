@@ -1,7 +1,9 @@
 # Passport
 
 ### Before Installing
-Before installing, you need to download [Git](https://git-scm.com/) and python
+Before installing, you need to download [Git](https://git-scm.com/) and [Python](https://www.python.org/)
+
+Make sure when installing python, you go to customize setting and make sure the "Add Python to environment variables" checkbox is checked
 
 ### Install
 Go to a file where you would like to install this file in, then open the terminal and type 
