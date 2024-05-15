@@ -25,7 +25,10 @@ def total_points(temp:dict, key:str):
     total += person["dayTwo"]
     total += person["dayThree"]
     total += person["dayFour"]
-    total += person["bonus"]
+    total += person["bonusOne"]
+    total += person["bonusTwo"]
+    total += person["bonusThree"]
+    total += person["bonusFour"]
     return total
 
 

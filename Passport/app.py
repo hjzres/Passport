@@ -38,7 +38,10 @@ def accounts():
                 "dayTwo": 0,
                 "dayThree": 0,
                 "dayFour": 0,
-                "bonus": 0
+                "bonusOne": 0,
+                "bonusTwo": 0,
+                "bonusThree": 0,
+                "bonusFour": 0
             }
             data.post_file(cache, "cache")
     
@@ -55,13 +58,25 @@ def add():
         if name in cache:
             match setting['day']:
                 case 1:
-                    cache[name]['dayOne'] += int(worth)
+                    if cache[name]['dayOne'] + int(worth) <= setting['dayOneMax']:
+                        cache[name]['dayOne'] += int(worth)
+                        if cache[name]['dayOne'] == setting['dayOneMax'] and cache[name]['bonusOne'] != 5:
+                            cache[name]['bonusOne'] = 5
                 case 2:
-                    cache[name]['dayTwo'] += int(worth)
+                    if cache[name]['dayTwo'] + int(worth) <= setting['dayTwoMax']:
+                        cache[name]['dayTwo'] += int(worth)
+                        if cache[name]['dayTwo'] == setting['dayTwoMax'] and cache[name]['bonusTwo'] != 5:
+                            cache[name]['bonusTwo'] = 5
                 case 3:
-                    cache[name]['dayThree'] += int(worth)
+                    if cache[name]['dayThree'] + int(worth) <= setting['dayThreeMax']:
+                        cache[name]['dayThree'] += int(worth)
+                        if cache[name]['dayThree'] == setting['dayThreeMax'] and cache[name]['bonusThree'] != 5:
+                            cache[name]['bonusThree'] = 5
                 case 4:
-                    cache[name]['dayFour'] += int(worth)
+                    if cache[name]['dayFour'] + int(worth) <= setting['dayFourMax']:
+                        cache[name]['dayFour'] += int(worth)
+                        if cache[name]['dayFour'] == setting['dayFourMax'] and cache[name]['bonusFour'] != 5:
+                            cache[name]['bonusFour'] = 5
             
             data.post_file(cache, "cache")
         else:
