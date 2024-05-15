@@ -47,12 +47,22 @@ def accounts():
 @app.route("/e/add", methods=["GET", "POST"])
 def add():
     cache = data.load_file("cache")
+    setting = data.load_settings()
 
     if request.method == "POST":
         name = request.form["name"]
         worth = request.form["worth"]
         if name in cache:
-            cache[name] += int(worth)
+            match setting['day']:
+                case 1:
+                    cache[name]['dayOne'] += int(worth)
+                case 2:
+                    cache[name]['dayTwo'] += int(worth)
+                case 3:
+                    cache[name]['dayThree'] += int(worth)
+                case 4:
+                    cache[name]['dayFour'] += int(worth)
+            
             data.post_file(cache, "cache")
         else:
             return render_template("add.html", error="That name is not in the system")
