@@ -40,8 +40,7 @@ def accounts():
                 "dayFour": 0,
                 "bonusOne": 0,
                 "bonusTwo": 0,
-                "bonusThree": 0,
-                "bonusFour": 0
+                "bonusThree": 0
             }
             data.post_file(cache, "cache")
     
@@ -75,8 +74,6 @@ def add():
                 case 4:
                     if cache[name]['dayFour'] + int(worth) <= setting['dayFourMax']:
                         cache[name]['dayFour'] += int(worth)
-                        if cache[name]['dayFour'] == setting['dayFourMax'] and cache[name]['bonusFour'] != 5:
-                            cache[name]['bonusFour'] = 5
             
             data.post_file(cache, "cache")
         else:

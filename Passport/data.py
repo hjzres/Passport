@@ -15,7 +15,7 @@ def load_settings():
 
 def make_settings():
     with open("./data/settings.toml", "w") as f:
-        f.write("minimumTickets = 0\nticketsPerRaffle = 10\n\n day = 1\ndayOneMax = 10\ndayTwoMax = 3\ndayThreeMax = 0\ndayFourMax = 0")
+        f.write("minimumTickets = 0\nticketsPerRaffle = 10\n\n day = 1\ndayOneMax = 10\ndayTwoMax = 8\ndayThreeMax = 5\ndayFourMax = 9")
 
 def total_points(temp:dict, key:str):
     total:int = 0
@@ -28,7 +28,6 @@ def total_points(temp:dict, key:str):
     total += person["bonusOne"]
     total += person["bonusTwo"]
     total += person["bonusThree"]
-    total += person["bonusFour"]
     return total
 
 
